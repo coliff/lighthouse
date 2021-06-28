@@ -55,8 +55,8 @@ class UsesResponsiveImages extends ByteEfficiencyAudit {
   static getDisplayedDimensions(image, ViewportDimensions) {
     if (image.displayedWidth && image.displayedHeight) {
       return {
-        width: image.displayedWidth,
-        height: image.displayedHeight,
+        width: image.displayedWidth * ViewportDimensions.devicePixelRatio,
+        height: image.displayedHeight * ViewportDimensions.devicePixelRatio,
       };
     }
 
@@ -75,8 +75,8 @@ class UsesResponsiveImages extends ByteEfficiencyAudit {
     }
 
     return {
-      width: usedViewportWidth,
-      height: usedViewportHeight,
+      width: usedViewportWidth * ViewportDimensions.devicePixelRatio,
+      height: usedViewportHeight * ViewportDimensions.devicePixelRatio,
     };
   }
 
@@ -94,8 +94,7 @@ class UsesResponsiveImages extends ByteEfficiencyAudit {
     }
 
     const displayed = this.getDisplayedDimensions(image, ViewportDimensions);
-    const usedPixels = displayed.width * displayed.height *
-      Math.pow(ViewportDimensions.devicePixelRatio, 2);
+    const usedPixels = displayed.width * displayed.height;
 
     const url = URL.elideDataURI(image.src);
     const actualPixels = image.naturalWidth * image.naturalHeight;

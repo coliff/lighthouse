@@ -58,10 +58,8 @@ class UsesResponsiveImagesSnapshot extends Audit {
         artifacts.ViewportDimensions
       );
 
-      const actualPixels = actual.width * actual.height *
-        Math.pow(artifacts.ViewportDimensions.devicePixelRatio, 2);
-      const usedPixels = displayed.width * displayed.height *
-        Math.pow(artifacts.ViewportDimensions.devicePixelRatio, 2);
+      const actualPixels = actual.width * actual.height;
+      const usedPixels = displayed.width * displayed.height;
 
       if (actualPixels <= usedPixels) continue;
 
