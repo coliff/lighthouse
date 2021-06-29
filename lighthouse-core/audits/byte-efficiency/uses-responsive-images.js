@@ -178,3 +178,4 @@ class UsesResponsiveImages extends ByteEfficiencyAudit {
 
 module.exports = UsesResponsiveImages;
 module.exports.UIStrings = UIStrings;
+module.exports.str_ = str_;

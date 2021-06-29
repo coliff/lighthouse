@@ -23,8 +23,6 @@ const UIStrings = {
   columnActualDimensions: 'Actual dimensions',
 };
 
-Object.assign(UIStrings, UsesResponsiveImages.UIStrings);
-
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
 
 class UsesResponsiveImagesSnapshot extends Audit {
@@ -34,10 +32,8 @@ class UsesResponsiveImagesSnapshot extends Audit {
   static get meta() {
     return {
       id: 'uses-responsive-images-snapshot',
-      // @ts-ignore Title imported from UsesResponsiveImages.
-      title: str_(UIStrings.title),
-      // @ts-ignore Description imported from UsesResponsiveImages.
-      description: str_(UIStrings.description),
+      title: UsesResponsiveImages.str_(UsesResponsiveImages.UIStrings.title),
+      description: UsesResponsiveImages.str_(UsesResponsiveImages.UIStrings.description),
       supportedModes: ['snapshot'],
       requiredArtifacts: ['ImageElements', 'ViewportDimensions'],
     };
